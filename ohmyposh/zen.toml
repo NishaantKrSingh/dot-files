@@ -25,9 +25,10 @@ version = 2
 		template = ' {{ .HEAD }}{{ if or (.Working.Changed) (.Staging.Changed) }}*{{ end }}'
 
 		[blocks.segments.properties]
-			branch_icon = ''
 			commit_icon = '@'
 			fetch_status = true
+
+
 
 [[blocks]]
 	type = 'rprompt'
@@ -43,6 +44,15 @@ version = 2
 		[blocks.segments.properties]
 			threshold = 5000
 
+	[[blocks.segments]]
+		type = 'python'
+		style = 'plain'
+		foreground = '#6c6c6c'
+		background = 'transparent'
+		template = '{{ if .Venv }}{{ .Venv | printf " %s (venv)"}}{{end}}' 
+
+
+
 [[blocks]]
 type = 'prompt'
 alignment = 'left'
@@ -56,8 +66,8 @@ newline = true
 			"{{if eq .Code 0}}magenta{{end}}",
 		]
 		background = 'transparent'
-		template = '❯'
-
+		template = '❯'	
+	
 [transient_prompt]
 	foreground_templates = [
 		"{{if gt .Code 0}}red{{end}}",
