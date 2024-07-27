@@ -11,7 +11,7 @@ version = 2
 		type = 'path'
 		style = 'plain'
 		background = 'transparent'
-		foreground = 'blue'
+		foreground = 'p:green'
 		template = '{{ .Path }}'
 
 		[blocks.segments.properties]
@@ -20,7 +20,7 @@ version = 2
 	[[blocks.segments]]
 		type = 'git'
 		style = 'plain'
-		foreground = '#6c6c6c'
+		foreground = 'p:purple'
 		background = 'transparent'
 		template = ' {{ .HEAD }}{{ if or (.Working.Changed) (.Staging.Changed) }}*{{ end }}'
 
@@ -37,7 +37,7 @@ version = 2
 	[[blocks.segments]]
 		type = 'executiontime'
 		style = 'plain'
-		foreground = 'yellow'
+		foreground = 'p:yellow'
 		background = 'transparent'
 		template = '{{ div .Ms 1000 }}s'
 
@@ -47,7 +47,7 @@ version = 2
 	[[blocks.segments]]
 		type = 'python'
 		style = 'plain'
-		foreground = '#6c6c6c'
+		foreground = 'p:orange'
 		background = 'transparent'
 		template = '{{ if .Venv }}{{ .Venv | printf " %s (venv)"}}{{end}}' 
 
@@ -62,17 +62,25 @@ newline = true
 		type = 'text'
 		style = 'plain'
 		foreground_templates = [
-			"{{if gt .Code 0}}red{{end}}",
-			"{{if eq .Code 0}}magenta{{end}}",
+			"{{if gt .Code 0}}p:red{{end}}",
+			"{{if eq .Code 0}}p:purple{{end}}",
 		]
 		background = 'transparent'
 		template = '❯'	
 	
 [transient_prompt]
 	foreground_templates = [
-		"{{if gt .Code 0}}red{{end}}",
-		"{{if eq .Code 0}}magenta{{end}}",
+		"{{if gt .Code 0}}p:red{{end}}",
+		"{{if eq .Code 0}}p:purple{{end}}",
 	]
 	background = 'transparent'
 	template = '❯'
 	
+
+[palette]
+orange = "#FF847C"
+green = "#99B898"
+grey = "#6c6c6c"
+red = "#E84A5F"
+yellow = "#FECEAB"
+purple = "#E0B0FF"
