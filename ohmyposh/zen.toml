@@ -80,7 +80,5 @@ newline = true
 [palette]
 orange = "#FF847C"
 green = "#99B898"
-grey = "#6c6c6c"
 red = "#E84A5F"
 yellow = "#FECEAB"
-purple = "#E0B0FF"
